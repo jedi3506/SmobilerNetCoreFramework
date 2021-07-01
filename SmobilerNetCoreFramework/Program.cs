@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SmobilerNetCoreFramework.Handler;
 
 namespace SmobilerNetCoreFramework
 {
@@ -13,6 +14,8 @@ namespace SmobilerNetCoreFramework
     {
         public static void Main(string[] args)
         {
+            //Æô¶¯smobiler·þÎñ
+            ServerHandler.Start(args);
             CreateHostBuilder(args).Build().Run();
         }
 

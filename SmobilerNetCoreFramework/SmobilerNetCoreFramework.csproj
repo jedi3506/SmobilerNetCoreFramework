@@ -7,7 +7,23 @@
   <ItemGroup>
     <Folder Include="Config\" />
     <Folder Include="Options\" />
-    <Folder Include="Handler\" />
+    <Folder Include="Utils\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SmobilerNetCoreFramework.Test\SmobilerNetCoreFramework.Test.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Smobiler.Core">
+      <HintPath>C:\Program Files (x86)\Smobiler Designer\LibraryCore\Smobiler.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Smobiler.Core.Controls">
+      <HintPath>C:\Program Files (x86)\Smobiler Designer\LibraryCore\Smobiler.Core.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="Smobiler.Core.Windows">
+      <HintPath>C:\Program Files (x86)\Smobiler Designer\LibraryCore\Smobiler.Core.Windows.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
