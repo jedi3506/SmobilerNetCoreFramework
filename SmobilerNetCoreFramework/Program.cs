@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using SmobilerNetCoreFramework.Handler;
+using SmobilerNetCoreFramework.Log;
 
 namespace SmobilerNetCoreFramework
 {
@@ -14,8 +15,9 @@ namespace SmobilerNetCoreFramework
     {
         public static void Main(string[] args)
         {
+            SmobilerNetCoreFramework.Log.Log.Info("just test.");
             //Æô¶¯smobiler·þÎñ
-            ServerHandler.Start(args);
+            Task.Run(()=>ServerHandler.Start(args));
             CreateHostBuilder(args).Build().Run();
         }
 

@@ -16,6 +16,7 @@ namespace SmobilerNetCoreFramework.Handler
         private static Smobiler.Core.MobileServer _Server = new MobileServer();
         public static void Start(string[] args)
         {
+            //Assembly.
             Console.WriteLine("正在启动Smobiler服务....");
             InitConfig();
             ServerBind();
@@ -38,7 +39,7 @@ namespace SmobilerNetCoreFramework.Handler
         private static void ServerBind()
         {
             Console.WriteLine("正在绑定smobiler服务配置文件....");
-            Assembly assembly = Assembly.LoadFile(Environment.CurrentDirectory+ "/bin/Debug/net5.0/SmobilerNetCoreFramework.Test.exe");
+            Assembly assembly = Assembly.LoadFile(@"F:\FlaneSaas\smobilernetCoreframework\SmobilerNetCoreFramework\bin\Debug\net5.0\SmobilerNetCoreFramework.Test.dll");
             Type type = assembly.GetType("SmobilerNetCoreFramework.Test.SmobilerForm1");
             _Server.StartUpForm = type;
             //绑定事件
