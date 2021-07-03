@@ -52,7 +52,7 @@ Smobiler支持linux、windows布署框架,支持.net core3.1/.net 5/.net 6，完
 
    - 命令参数格式：
 
-     ![image-20210704014817264](C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20210704014817264.png)
+     ![](https://gitee.com/opaldev/smobilernetCoreframework/raw/master/SmobilerNetCoreFramework/wwwroot/images/commandinfo4.png)
 
 
 
