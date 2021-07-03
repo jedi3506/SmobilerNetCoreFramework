@@ -26,7 +26,7 @@ Smobiler支持linux、windows布署框架,支持.net core3.1/.net 5/.net 6，完
 
 5. SmobilerNetCoreFramework项目编译通过（默认为.net5）；
 
-6. 将项目拷贝到Linux服务器，
+6. 将项目可执行文件拷贝到Linux服务器，
 
    - 可以运行命令：
 
@@ -54,7 +54,9 @@ Smobiler支持linux、windows布署框架,支持.net core3.1/.net 5/.net 6，完
 
 ![](https://gitee.com/opaldev/smobilernetCoreframework/raw/master/SmobilerNetCoreFramework/wwwroot/images/commandinfo4.png)
 =======
-#### 布署说明
+#### 布署后运行后图例：
+
+
 
 #### Docker布署教程
 
