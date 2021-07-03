@@ -16,6 +16,8 @@ namespace SmobilerNetCoreFramework.Handler
         public static Smobiler.Core.MobileServer _Server = new MobileServer();
         private static int HttpServerPort = 0;
         private static int TcpServerPort = 0;
+        private static string assemblyName = string.Empty;
+        private static string startupForm = string.Empty;
         public static void Start(string[] args)
         {
             if (!CommandParser(args))
@@ -23,17 +25,15 @@ namespace SmobilerNetCoreFramework.Handler
                 throw new Exception("命令参数不正确，程序退出!");
             }
             Console.WriteLine("正在启动Smobiler服务....");
-            InitConfig();
             ServerBind();
             _Server.StartServer();
             MobileGlobal.OnServerStart(_Server);
             Console.WriteLine("已成功启动Smobiler服务！");
-            DetailShow();
         }
 
         private static bool CommandParser(string[] args)
         {
-            (bool tag, int httpServerPort, int tcpServerPort) result = CommandHandler.ArgsParser(args);
+            (bool tag, int httpServerPort, int tcpServerPort, string assemblyName, string startupForm) result = CommandHandler.ArgsParser(args);
             if (!result.tag)
             {
                 return false;
@@ -41,26 +41,27 @@ namespace SmobilerNetCoreFramework.Handler
 
             HttpServerPort = result.httpServerPort;
             TcpServerPort = result.tcpServerPort;
+            assemblyName = result.assemblyName;
+            startupForm = result.startupForm;
             return true;
-        }
-
-        private static void DetailShow()
-        {
-        }
-
-        private static void InitConfig()
-        {
-            Console.WriteLine("正在初始化smobiler服务配置文件....");
-
-
-            Console.WriteLine("正在初始化smobiler服务配置文件....结束！");
         }
         private static void ServerBind()
         {
             Console.WriteLine("正在绑定smobiler服务配置文件....");
-            Assembly assembly = Assembly.LoadFile(@"F:\FlaneSaas\smobilernetCoreframework\SmobilerNetCoreFramework\bin\Debug\net5.0\SmobilerNetCoreFramework.Test.exe");
-            Type type = assembly.GetType("SmobilerNetCoreFramework.Test.SmobilerForm1");
-            _Server.StartUpForm = type;
+            string exeName = string.Empty;
+            string startFormName = string.Empty;
+            if (!string.IsNullOrEmpty(assemblyName))
+            {
+                exeName = assemblyName;
+                startFormName = startupForm;
+            }
+            Assembly assembly = Assembly.LoadFile(exeName);
+            _Server.StartUpForm = assembly.GetType(startFormName);
+            if (HttpServerPort != 0)
+            {
+                _Server.Setting.HttpServerPort = HttpServerPort;
+                _Server.Setting.TcpServerPort = TcpServerPort;
+            }
             //绑定事件
             _Server.SessionStart += MobileGlobal.OnSessionStart;
             _Server.SessionStop += MobileGlobal.OnSessionStop;
