@@ -16,7 +16,7 @@ Smobiler支持linux、windows布署框架,支持.net core3.1/.net 5/.net 6，完
 
 #### 使用教程
 
-1. 由于smobiler在.net core下没有编译器，所以原有APP项目照样编译（如果是新项目，则按smobiler的教程建立Framework APP新项目），编译结果为：xxxx.exe文件；
+1. 由于smobiler在.net core下没有设计器，所以原有APP项目照样编译（如果是新项目，则按smobiler的教程建立Framework APP新项目），编译结果为：xxxx.exe文件；
 
 2. git clone https://gitee.com/opaldev/smobilernetCoreframework.git  克隆下本SmobilerNetCoreFramework项目；
 
