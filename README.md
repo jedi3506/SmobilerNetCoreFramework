@@ -52,11 +52,11 @@ Smobiler支持linux、windows布署框架,支持.net core3.1/.net 5/.net 6，完
 
    - 命令参数格式：
 
-![](https://gitee.com/opaldev/smobilernetCoreframework/raw/master/SmobilerNetCoreFramework/wwwroot/images/commandinfo4.png)
+![命令参数](https://gitee.com/opaldev/smobilernetCoreframework/raw/master/SmobilerNetCoreFramework/wwwroot/images/commandinfo4.png)
 =======
-#### 布署后运行后图例：
+#### 布署后运行图例：
 
-
+![运行图](https://gitee.com/opaldev/smobilernetCoreframework/raw/master/SmobilerNetCoreFramework/wwwroot/images/run.jpg)
 
 #### Docker布署教程
 
