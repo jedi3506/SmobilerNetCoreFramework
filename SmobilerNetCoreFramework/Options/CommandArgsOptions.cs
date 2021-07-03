@@ -11,7 +11,7 @@ namespace SmobilerNetCoreFramework.Options
     {
         [Option('p', "http-server-port", HelpText = "http server port", Required = false)]
         public int HttpPort { get; set; }
-        [Option('t', "", HelpText = "tcp server port", Required = false)]
+        [Option('t', "tcp-server-port", HelpText = "tcp server port", Required = false)]
         public int TcpPort { get; set; }
         [Option('a', "assembly", HelpText = "要在.netcore下运行的smobiler的APP程序", Required = true)]
         public string AssemblyName { get; set; }
