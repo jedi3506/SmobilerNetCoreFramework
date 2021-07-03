@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{E8CC9BA8-EC0F-4E48-97C8-EEFDCA2BDBB3}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SmobilerNetCoreFramework.Test</RootNamespace>
     <AssemblyName>SmobilerNetCoreFramework.Test</AssemblyName>

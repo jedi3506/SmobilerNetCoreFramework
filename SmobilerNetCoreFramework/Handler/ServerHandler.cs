@@ -13,16 +13,35 @@ namespace SmobilerNetCoreFramework.Handler
     /// </summary>
     public class ServerHandler
     {
-        private static Smobiler.Core.MobileServer _Server = new MobileServer();
+        public static Smobiler.Core.MobileServer _Server = new MobileServer();
+        private static int HttpServerPort = 0;
+        private static int TcpServerPort = 0;
         public static void Start(string[] args)
         {
-            //Assembly.
+            if (!CommandParser(args))
+            {
+                throw new Exception("命令参数不正确，程序退出!");
+            }
             Console.WriteLine("正在启动Smobiler服务....");
             InitConfig();
             ServerBind();
             _Server.StartServer();
-            Console.WriteLine("成功启动Smobiler服务！下面是启动明细信息：");
+            MobileGlobal.OnServerStart(_Server);
+            Console.WriteLine("已成功启动Smobiler服务！");
             DetailShow();
+        }
+
+        private static bool CommandParser(string[] args)
+        {
+            (bool tag, int httpServerPort, int tcpServerPort) result = CommandHandler.ArgsParser(args);
+            if (!result.tag)
+            {
+                return false;
+            }
+
+            HttpServerPort = result.httpServerPort;
+            TcpServerPort = result.tcpServerPort;
+            return true;
         }
 
         private static void DetailShow()
@@ -39,7 +58,7 @@ namespace SmobilerNetCoreFramework.Handler
         private static void ServerBind()
         {
             Console.WriteLine("正在绑定smobiler服务配置文件....");
-            Assembly assembly = Assembly.LoadFile(@"F:\FlaneSaas\smobilernetCoreframework\SmobilerNetCoreFramework\bin\Debug\net5.0\SmobilerNetCoreFramework.Test.dll");
+            Assembly assembly = Assembly.LoadFile(@"F:\FlaneSaas\smobilernetCoreframework\SmobilerNetCoreFramework\bin\Debug\net5.0\SmobilerNetCoreFramework.Test.exe");
             Type type = assembly.GetType("SmobilerNetCoreFramework.Test.SmobilerForm1");
             _Server.StartUpForm = type;
             //绑定事件
@@ -47,8 +66,6 @@ namespace SmobilerNetCoreFramework.Handler
             _Server.SessionStop += MobileGlobal.OnSessionStop;
             _Server.SessionConnect += MobileGlobal.OnSessionConnect;
             _Server.ClientPushOpened += MobileGlobal.OnPushCallBack;
-            MobileGlobal.OnServerStart(_Server);
-            MobileGlobal.OnServerStop(_Server);
             Console.WriteLine("正在绑定smobiler服务配置文件....结束！");
         }
     }

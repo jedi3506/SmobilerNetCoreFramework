@@ -16,7 +16,7 @@ namespace SmobilerNetCoreFramework.Test
 
         private void button1_Press(object sender, EventArgs e)
         {
-            MessageBox.Show("hello,world! - .net framework");
+            MessageBox.Show("hello,world!");
         }
     }
 }

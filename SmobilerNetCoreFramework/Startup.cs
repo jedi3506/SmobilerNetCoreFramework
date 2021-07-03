@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SmobilerNetCoreFramework.Handler;
 
 namespace SmobilerNetCoreFramework
 {
@@ -52,6 +53,7 @@ namespace SmobilerNetCoreFramework
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            SignalHander.Set();
         }
     }
 }

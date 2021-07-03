@@ -15,10 +15,16 @@ namespace SmobilerNetCoreFramework
     {
         public static void Main(string[] args)
         {
-            SmobilerNetCoreFramework.Log.Log.Info("just test.");
             //启动smobiler服务
-            Task.Run(()=>ServerHandler.Start(args));
-            CreateHostBuilder(args).Build().Run();
+            ServerHandler.Start(args);
+            Task.Run(() =>
+            {
+                SignalHander.WaitOne();
+                Log.Log.Info("****** 在布署的时候您可以将上面的链接替换成真正的IP来进行访问！");
+                SettingHandler.ShowSmobilerServerInfo(ServerHandler._Server);
+            });
+            IHost host = CreateHostBuilder(args).Build();
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -27,5 +33,7 @@ namespace SmobilerNetCoreFramework
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+
     }
 }
