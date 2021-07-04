@@ -6,7 +6,7 @@
 - SmobilerNetCoreFramework是支持smobiler在linux、windows布署框架,支持.net core3.1/.net 5/.net 6，完全无渗入式（Sobiler原有项目可以不用任何修改就可运行在Linux,window平台），支持Smobiler的Docker布署;
 - 让你的smobiler APP应用在没有任何修改的情况下运行在linux环境下；
 - SmobilerNetCoreFramework基于.net5.0;
-- MIT协议，请大家尽管使用，如果发现问题请向我提出，我会及时回复；
+- MIT协议，请大家尽管使用，如果发现问题请向我提出，我会及时回复，如果对您有帮助，帮我start一下:）；
 
 #### 系统特点
 
