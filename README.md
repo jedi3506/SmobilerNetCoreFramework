@@ -2,8 +2,10 @@
 
 **★★★★★** 五星级smobiler布署Linux方案，支持Docker布署
 
-#### 介绍
-Smobiler支持linux、windows布署框架,支持.net core3.1/.net 5/.net 6，完全无渗入式（Sobiler原有项目可以不用任何修改就可运行在Linux,window平台），支持Smobiler的Docker布署;
+#### SmobilerNetCoreFramework是什么？
+- SmobilerNetCoreFramework是支持smobiler在linux、windows布署框架,支持.net core3.1/.net 5/.net 6，完全无渗入式（Sobiler原有项目可以不用任何修改就可运行在Linux,window平台），支持Smobiler的Docker布署;
+- 让你的smobiler APP应用在没有任何修改的情况下运行在linux环境下；
+- SmobilerNetCoreFramework基于.net5.0;
 
 #### 系统特点
 
