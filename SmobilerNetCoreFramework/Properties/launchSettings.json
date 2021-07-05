@@ -10,7 +10,6 @@
   "profiles": {
     "SmobilerNetCoreFramework": {
       "commandName": "Project",
-      "commandLineArgs": "-a \"F:\\FlaneSaas\\smobilernetCoreframework\\SmobilerNetCoreFramework\\bin\\Debug\\net5.0\\SmobilerNetCoreFramework.Test.exe\"  -s \"SmobilerNetCoreFramework.Test.SmobilerForm1\"",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -25,6 +24,14 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "commandLineArgs": "-a \"F:\\FlaneSaas\\smobilernetCoreframework\\SmobilerNetCoreFramework.Test\\bin\\Debug\\SmobilerNetCoreFramework.Test.exe\" -s \"SmobilerNetCoreFramework.Test.SmobilerForm1\"",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true,
+      "useSSL": true
     }
   }
 }

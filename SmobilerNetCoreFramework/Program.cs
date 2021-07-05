@@ -20,7 +20,7 @@ namespace SmobilerNetCoreFramework
             Task.Run(() =>
             {
                 SignalHander.WaitOne();
-                Log.Log.Info("****** 在布署的时候您可以将上面的链接替换成真正的IP来进行访问！");
+                Log.Log.Info("****** you can replace some realy ip above for access!！");
                 SettingHandler.ShowSmobilerServerInfo(ServerHandler._Server);
             });
             IHost host = CreateHostBuilder(args).Build();
