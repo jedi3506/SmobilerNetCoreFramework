@@ -74,7 +74,11 @@
 
 docker pull opalcodefarmer/smobilernetcoreframework
 
-2、在linux服务器上新建目录，如：/home/ubuntu/data/app，并将要挂载运行的smobiler APP上传至/home/ubuntu/data/app目录
+2、在linux服务器上新建目录，
+
+如：/home/ubuntu/data/app，并将要挂载运行的smobiler APP上传至/home/ubuntu/data/app目录
+
+新建：/home/ubuntu/data/AppResource   用于放置待运行的FlaneApp的Resources目录，将APP需要的Resource拷贝至本目录
 
 3、运行命令启动：
 
@@ -82,11 +86,13 @@ docker run --name "smobilernetcoreframework"  -p 2323:2323 -p 2324:2324 \
 --env smsfilename="SmobilerNetCoreFramework.Test.exe" \
 --env startupForm="SmobilerNetCoreFramework.Test.SmobilerForm1" \
 -v /home/ubuntu/data/app:/app/AppLib \
+
+-v /home/ubuntu/data/AppResource:/app/Resources \
+
 opalcodefarmer/smobilernetcoreframework:latest
 
 - 可以将SmobilerNetCoreFramework.Test.exe改成自己的文件名，不需要路径；
-
 - 可以将SmobilerNetCoreFramework.Test.SmobilerForm1换成自己的启动文件，包括命名空间;
-
 - -v /home/ubuntu/data/app: smobiler APP存放的目录；
+- -v /home/ubuntu/data/AppResource App运行时需要的Resource目录；
 
