@@ -15,7 +15,7 @@ public class MobileGlobal
     /// <param name="server"></param>
     public static void OnServerStart(MobileServer server)
     {
-
+        Console.WriteLine("run onserverstart method.....");
     }
     /// <summary>
     /// 在服务停止时触发
@@ -33,7 +33,7 @@ public class MobileGlobal
     /// <param name="e"></param>
     public static void OnSessionStart(object sender, SmobilerSessionEventArgs e)
     {
-
+        Console.WriteLine("run OnSessionStart....");
     }
     /// <summary>
     /// 在客户端会话结束时触发
@@ -42,7 +42,7 @@ public class MobileGlobal
     /// <param name="e"></param>
     public static void OnSessionStop(object sender, SmobilerSessionEventArgs e)
     {
-
+        Console.WriteLine("run OnSessionStop....");
     }
     /// <summary>
     /// 在客户端会话重新连接时触发
@@ -51,7 +51,7 @@ public class MobileGlobal
     /// <param name="e"></param>
     public static void OnSessionConnect(object sender, SmobilerSessionEventArgs e)
     {
-
+        Console.WriteLine("run OnSessionConnect....");
     }
     /// <summary>
     /// 在回调推送被客户端点击时触发

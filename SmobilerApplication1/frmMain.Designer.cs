@@ -185,12 +185,12 @@ partial class frmMain : System.Windows.Forms.Form
         // txtName
         // 
         this.txtName.BackColor = System.Drawing.Color.White;
-        this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::SmobilerNetCoreFramework.Test.Properties.Settings.Default, "txtName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+        this.txtName.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::SmobilerApplication1.Properties.Settings.Default, "txtName", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
         this.txtName.Location = new System.Drawing.Point(90, 33);
         this.txtName.Name = "txtName";
         this.txtName.Size = new System.Drawing.Size(166, 21);
         this.txtName.TabIndex = 9;
-        this.txtName.Text = global::SmobilerNetCoreFramework.Test.Properties.Settings.Default.txtName;
+        this.txtName.Text = global::SmobilerApplication1.Properties.Settings.Default.txtName;
         // 
         // btnGenerateQRcode
         // 

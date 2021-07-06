@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Smobiler;
 using Smobiler.Core;
 using System.Reflection;
+using System.Linq;
 
 namespace SmobilerNetCoreFramework.Handler
 {
@@ -19,18 +20,22 @@ namespace SmobilerNetCoreFramework.Handler
         private static string assemblyName = string.Empty;
         private static string startupForm = string.Empty;
         private static Type _StartType = null;
+        private static Assembly _Assembly = null;
+        private static Type _MobileGlobalType = null;
         public static void Start(string[] args)
         {
             if (!CommandParser(args))
             {
                 throw new Exception("命令参数不正确，程序退出!");
             }
-            Console.WriteLine("starting Smobiler service....");
+
+            Log.Log.Info($"smobiler configpath:{_Server.Setting.ConfigPath}");
+            Log.Log.Info($"current dir:{Environment.CurrentDirectory}");
+            Log.Log.Info("starting Smobiler service....");
             ServerBind();
             _Server.StartServer();
             OnServerStart();
-
-            Console.WriteLine("already started Smobiler service!");
+            Log.Log.Info("Already started Smobiler service!");
         }
 
         private static bool CommandParser(string[] args)
@@ -49,7 +54,7 @@ namespace SmobilerNetCoreFramework.Handler
         }
         private static void ServerBind()
         {
-            Console.WriteLine("Binding Smobiler Service Config files....");
+            Log.Log.Info("Binding Smobiler Service Config files....");
             string exeName = string.Empty;
             string startFormName = string.Empty;
             if (!string.IsNullOrEmpty(assemblyName))
@@ -57,8 +62,8 @@ namespace SmobilerNetCoreFramework.Handler
                 exeName = assemblyName;
                 startFormName = startupForm;
             }
-            Assembly assembly = Assembly.LoadFile(exeName);
-            _StartType = assembly.GetType(startFormName);
+            _Assembly = Assembly.LoadFile(exeName);
+            _StartType = _Assembly.GetType(startFormName, true, true);
             _Server.StartUpForm = _StartType;
             if (HttpServerPort != 0)
             {
@@ -71,39 +76,61 @@ namespace SmobilerNetCoreFramework.Handler
             _Server.SessionConnect += _Server_SessionConnect; ;
             _Server.ClientPushOpened += _Server_ClientPushOpened;
 
-            Console.WriteLine("inding Smobiler Service Config files....Finished!");
+            Log.Log.Info("Binding Smobiler Service Config files....Finished!");
         }
 
         private static void _Server_ClientPushOpened(object sender, ClientPushOpenedEventArgs e)
         {
-            _MehtodInvoke(_StartType, () => "OnPushCallBack", sender, e);
+            _MehtodInvoke(() => "OnPushCallBack", sender, e);
         }
 
         public static void OnServerStart()
         {
-            MethodInfo method = _StartType.GetMethod("OnServerStart", BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static);
-            method.Invoke(_Server, new object[] { });
+            if (_MobileGlobalType == null)
+            {
+                _MobileGlobalType = GetMobileGlobalType();
+            }
+            if (_MobileGlobalType == null)
+            {
+                return;
+            }
+
+            _MobileGlobalType.InvokeMember("OnServerStart",BindingFlags.InvokeMethod  | BindingFlags.Static | BindingFlags.Public,
+                null, null, new object[] {_Server});
         }
 
-        private static void _MehtodInvoke(Type type,Func<string> func,object sender,object e)
+        private static void _MehtodInvoke(Func<string> func, object sender, object e)
         {
-            MethodInfo method = _StartType.GetMethod(func.Invoke(), BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static);
-            method.Invoke(_Server, new object[] { sender, e });
+            if (_MobileGlobalType == null)
+            {
+                _MobileGlobalType = GetMobileGlobalType();
+            }
+            if (_MobileGlobalType == null)
+            {
+                return;
+            }
+            _MobileGlobalType.InvokeMember(func.Invoke(),BindingFlags.InvokeMethod | BindingFlags.Static | BindingFlags.Public,
+                null,null,new object[] { sender,e});
+        }
+
+        private static Type GetMobileGlobalType()
+        {
+            return _Assembly.GetType("MobileGlobal", false, true);
         }
 
         private static void _Server_SessionConnect(object sender, SmobilerSessionEventArgs e)
         {
-            _MehtodInvoke(_StartType, () => "OnSessionConnect", sender, e);
+            _MehtodInvoke(() => "OnSessionConnect", sender, e);
         }
 
         private static void _Server_SessionStop(object sender, SmobilerSessionEventArgs e)
         {
-            _MehtodInvoke(_StartType, () => "OnSessionStop", sender, e);
+            _MehtodInvoke(() => "OnSessionStop", sender, e);
         }
 
         private static void _Server_SessionStart(object sender, SmobilerSessionEventArgs e)
         {
-            _MehtodInvoke(_StartType, () => "OnSessionStart", sender, e);
+            _MehtodInvoke(() => "OnSessionStart", sender, e);
         }
     }
 }

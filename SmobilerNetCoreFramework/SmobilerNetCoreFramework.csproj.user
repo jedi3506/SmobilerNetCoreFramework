@@ -2,7 +2,7 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ShowAllFiles>true</ShowAllFiles>
-    <ActiveDebugProfile>Docker</ActiveDebugProfile>
+    <ActiveDebugProfile>SmobilerNetCoreFramework</ActiveDebugProfile>
     <NameOfLastUsedPublishProfile>F:\FlaneSaas\smobilernetCoreframework\SmobilerNetCoreFramework\Properties\PublishProfiles\registry.hub.docker.com_opalcodefarmer.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

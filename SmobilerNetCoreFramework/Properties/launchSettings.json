@@ -10,6 +10,7 @@
   "profiles": {
     "SmobilerNetCoreFramework": {
       "commandName": "Project",
+      "commandLineArgs": "-a \"F:\\FlaneSaas\\smobilernetCoreframework\\SmobilerApplication1\\bin\\Debug\\SmobilerApplication1.exe\"  -s \"SmobilerApplication1.SmobilerForm1\"",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

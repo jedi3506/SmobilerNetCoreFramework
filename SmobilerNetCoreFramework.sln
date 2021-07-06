@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmobilerNetCoreFramework", "SmobilerNetCoreFramework\SmobilerNetCoreFramework.csproj", "{53FF412E-6DE2-4D71-9F11-4B818FDA985E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmobilerNetCoreFramework.Test", "SmobilerNetCoreFramework.Test\SmobilerNetCoreFramework.Test.csproj", "{E8CC9BA8-EC0F-4E48-97C8-EEFDCA2BDBB3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmobilerApplication1", "SmobilerApplication1\SmobilerApplication1.csproj", "{A84056D3-0035-4B1E-B7CD-62884C2BC1D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{53FF412E-6DE2-4D71-9F11-4B818FDA985E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53FF412E-6DE2-4D71-9F11-4B818FDA985E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53FF412E-6DE2-4D71-9F11-4B818FDA985E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E8CC9BA8-EC0F-4E48-97C8-EEFDCA2BDBB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8CC9BA8-EC0F-4E48-97C8-EEFDCA2BDBB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8CC9BA8-EC0F-4E48-97C8-EEFDCA2BDBB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8CC9BA8-EC0F-4E48-97C8-EEFDCA2BDBB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A84056D3-0035-4B1E-B7CD-62884C2BC1D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A84056D3-0035-4B1E-B7CD-62884C2BC1D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A84056D3-0035-4B1E-B7CD-62884C2BC1D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A84056D3-0035-4B1E-B7CD-62884C2BC1D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

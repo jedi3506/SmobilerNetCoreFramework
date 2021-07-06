@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("SmobilerNetCoreFramework.Test")]
+[assembly: AssemblyTitle("SmobilerApplication1")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SmobilerNetCoreFramework.Test")]
+[assembly: AssemblyProduct("SmobilerApplication1")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 如果此项目向 COM 公开，则下列 GUID 用于类型库的 ID
-[assembly: Guid("e8cc9ba8-ec0f-4e48-97c8-eefdca2bdbb3")]
+[assembly: Guid("a84056d3-0035-4b1e-b7cd-62884c2bc1d2")]
 
 // 程序集的版本信息由下面四个值组成: 
 //

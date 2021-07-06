@@ -10,7 +10,7 @@
 
 using System;
 
-namespace SmobilerNetCoreFramework.Test.Properties
+namespace SmobilerApplication1.Properties
 {
     /// <summary>
     ///   一个强类型的资源类，用于查找本地化的字符串等。
@@ -44,7 +44,7 @@ namespace SmobilerNetCoreFramework.Test.Properties
             {
                 if (object.ReferenceEquals(resourceMan, null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SmobilerNetCoreFramework.Test.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SmobilerApplication1.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

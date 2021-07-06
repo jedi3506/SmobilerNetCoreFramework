@@ -85,7 +85,7 @@ partial class frmMain
         try
         {
             //服务起始界面
-            server.StartUpForm = typeof(SmobilerNetCoreFramework.Test.SmobilerForm1);
+            server.StartUpForm = typeof(SmobilerApplication1.SmobilerForm1);
             //服务TCP端口，默认为2323   
             this.txtTcpPort.Text = server.Setting.TcpServerPort.ToString();
             //服务HTTP端口，默认为2324  
@@ -196,7 +196,7 @@ partial class frmMain
     private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
     {
         StopServer();
-        SmobilerNetCoreFramework.Test.Properties.Settings.Default.Save();
+        SmobilerApplication1.Properties.Settings.Default.Save();
     }
 
     /// <summary>
@@ -206,7 +206,7 @@ partial class frmMain
     /// <param name="e"></param>
     private void btnsavename_Click(object sender, EventArgs e)
     {
-        SmobilerNetCoreFramework.Test.Properties.Settings.Default.Save();
+        SmobilerApplication1.Properties.Settings.Default.Save();
         if (networkDict.Count > 0)
         {
             this.txtNetAddress.Text = networkDict[this.combNets.SelectedItem.ToString()];

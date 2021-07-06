@@ -76,9 +76,13 @@ docker pull opalcodefarmer/smobilernetcoreframework
 
 2、在linux服务器上新建目录，
 
-如：/home/ubuntu/data/app，并将要挂载运行的smobiler APP上传至/home/ubuntu/data/app目录
+如：
 
-新建：/home/ubuntu/data/AppResource   用于放置待运行的FlaneApp的Resources目录，将APP需要的Resource拷贝至本目录
+新建：/home/ubuntu/data/app，并将要挂载运行的smobiler APP上传至/home/ubuntu/data/app目录
+
+新建：/home/ubuntu/data/AppResource，用于放置待运行的FlaneApp的Resources目录，将APP需要的Resource拷贝至本目录
+
+新建/home/ubuntu/data/AppDeveloperTrace，用于查看运行日志；
 
 3、运行命令启动：
 
@@ -88,6 +92,8 @@ docker run --name "smobilernetcoreframework"  -p 2323:2323 -p 2324:2324 \
 -v /home/ubuntu/data/app:/app/AppLib \
 
 -v /home/ubuntu/data/AppResource:/app/Resources \
+
+-v /home/ubuntu/data/AppDeveloperTrace:/app/DeveloperTrace \
 
 opalcodefarmer/smobilernetcoreframework:latest
 
